@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Apunte{% endblock %}
+
+{% block body %}
+    <h1>Edit Apunte</h1>
+
+    {{ include('apunte/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('apunte_index') }}">back to list</a>
+
+    {{ include('apunte/_delete_form.html.twig') }}
+{% endblock %}

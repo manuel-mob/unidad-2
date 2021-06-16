@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ApunteTipo{% endblock %}
+
+{% block body %}
+    <h1>ApunteTipo</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ apunte_tipo.id }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ apunte_tipo.nombre }}</td>
+            </tr>
+            <tr>
+                <th>FechaCreacion</th>
+                <td>{{ apunte_tipo.fechaCreacion ? apunte_tipo.fechaCreacion|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>FechaActualizacion</th>
+                <td>{{ apunte_tipo.fechaActualizacion ? apunte_tipo.fechaActualizacion|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('apunte_tipo_index') }}">back to list</a>
+
+    <a href="{{ path('apunte_tipo_edit', {'id': apunte_tipo.id}) }}">edit</a>
+
+    {{ include('apunte_tipo/_delete_form.html.twig') }}
+{% endblock %}

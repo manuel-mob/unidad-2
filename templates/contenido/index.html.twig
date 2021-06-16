@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contenido index{% endblock %}
+
+{% block body %}
+    <h1>Contenido index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Apuntes</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for contenido in contenidos %}
+            <tr>
+                <td>{{ contenido.id }}</td>
+                <td>{{ contenido.nombre }}</td>
+                <td>{{ contenido.descripcion }}</td>
+                <!-- <td>{{ contenido.fechaCreacion ? contenido.fechaCreacion|date('Y-m-d H:i:s') : '' }}</td>-->
+                <!-- <td>{{ contenido.fechaActualizacion ? contenido.fechaActualizacion|date('Y-m-d H:i:s') : '' }}</td>-->
+                <td>
+                    <ul>
+                    {% for apunte in contenido.apuntes %}
+                        <li><a href="{{ path('apunte_show', {'id': apunte.id}) }}">{{apunte.nombre}}</a>/{{apunte.tipo}}</li>
+                    {% endfor %}
+                    </ul>
+                </td>
+                <td>
+                    <a href="{{ path('contenido_show', {'id': contenido.id}) }}">show</a>
+                    <a href="{{ path('contenido_edit', {'id': contenido.id}) }}">edit</a>
+                    <a href="{{ path('apunte_new') }}">New Apunte</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('contenido_new') }}">Create new</a>
+{% endblock %}

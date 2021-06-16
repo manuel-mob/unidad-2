@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contenido{% endblock %}
+
+{% block body %}
+    <h1>Contenido</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ contenido.id }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ contenido.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Descripcion</th>
+                <td>{{ contenido.descripcion }}</td>
+            </tr>
+            <tr>
+                <th>FechaCreacion</th>
+                <td>{{ contenido.fechaCreacion ? contenido.fechaCreacion|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>FechaActualizacion</th>
+                <td>{{ contenido.fechaActualizacion ? contenido.fechaActualizacion|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('contenido_index') }}">back to list</a>
+
+    <a href="{{ path('contenido_edit', {'id': contenido.id}) }}">edit</a>
+
+    {{ include('contenido/_delete_form.html.twig') }}
+{% endblock %}

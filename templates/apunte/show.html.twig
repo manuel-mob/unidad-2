@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Apunte{% endblock %}
+
+{% block body %}
+    <h1>Apunte</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ apunte.id }}</td>
+            </tr>
+            <tr>
+                <th>Contenido</th>
+                <td>{{ apunte.contenido }}</td>
+            </tr>
+            <tr>
+                <th>Tipo de Apunte</th>
+                <td>{{ apunte.tipo }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ apunte.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Url</th>
+                <td>
+                
+                    {% if apunte.tipo == 'Video' %}
+                        <video width="320" height="240" controls>
+                            <source src="{{ apunte.url }}" >
+                        </video>
+                    {% else %}
+                        <a href="{{ apunte.url }}" target="_blank">Ver</a>
+                    {% endif %}
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('contenido_index') }}">back to list</a>
+
+    <a href="{{ path('apunte_edit', {'id': apunte.id}) }}">edit</a>
+
+    {{ include('apunte/_delete_form.html.twig') }}
+{% endblock %}

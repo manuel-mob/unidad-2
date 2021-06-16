@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Apunte index{% endblock %}
+
+{% block body %}
+    <h1>Apunte index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Url</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for apunte in apuntes %}
+            <tr>
+                <td>{{ apunte.id }}</td>
+                <td>{{ apunte.nombre }}</td>
+                <td>{{ apunte.url }}</td>
+                <td>
+                    <a href="{{ path('apunte_show', {'id': apunte.id}) }}">show</a>
+                    <a href="{{ path('apunte_edit', {'id': apunte.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('apunte_new') }}">Create new</a>
+{% endblock %}
