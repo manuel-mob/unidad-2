@@ -11,6 +11,7 @@
         "doctrine/doctrine-bundle": "^2.4",
         "doctrine/doctrine-migrations-bundle": "^3.1",
         "doctrine/orm": "^2.9",
+        "mopa/bootstrap-bundle": "^3.4",
         "sensio/framework-extra-bundle": "^6.1",
         "symfony/console": "5.3.*",
         "symfony/dotenv": "5.3.*",
@@ -22,7 +23,8 @@
         "symfony/security-csrf": "5.3.*",
         "symfony/twig-bundle": "5.3.*",
         "symfony/validator": "5.3.*",
-        "symfony/yaml": "5.3.*"
+        "symfony/yaml": "5.3.*",
+        "twbs/bootstrap": "^5.0"
     },
     "require-dev": {
         "symfony/maker-bundle": "^1.31"
